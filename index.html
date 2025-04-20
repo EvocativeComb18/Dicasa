@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo Dicasa - Desarrollador Inmobiliario</title>
+  <style>
+    :root {
+      --primary: #1A5276;
+      --secondary: #2E86C1;
+      --background: #F8F9F9;
+      --text: #2C3E50;
+      --light: #ffffff;
+      --accent: #154360;
+      --card-bg: #ffffff;
+      --section-bg: #EBF5FB;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    header {
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--light);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+    
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s;
+    }
+    
+    .btn:hover {
+      background-color: var(--accent);
+    }
+    
+    section {
+      padding: 4rem 0;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+    
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    @media (max-width: 768px) {
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .about-text h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mission-vision {
+      background-color: var(--section-bg);
+      padding: 4rem 0;
+    }
+    
+    .mv-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .mv-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .mv-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .mv-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .mv-card p {
+      text-align: justify;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .team-member {
+      background-color: var(--light);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    
+    .team-member:hover {
+      transform: translateY(-5px);
+    }
+    
+    .team-member img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+    }
+    
+    .member-info h3 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .member-info p {
+      margin-bottom: 1rem;
+      color: #666;
+    }
+    
+    .member-info .role {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .projects {
+      background-color: var(--section-bg);
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      background-color: var(--light);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .project-info {
+      padding: 1.5rem;
+    }
+    
+    .project-info h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .project-info p {
+      margin-bottom: 1rem;
+    }
+    
+    .tag {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .testimonials {
+      padding: 4rem 0;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: var(--light);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .testimonial-card .quote {
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.2;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      margin-bottom: 0.25rem;
+    }
+    
+    .author-info p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .contact {
+      background-color: var(--light);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .contact-info p {
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-method i {
+      color: var(--primary);
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .contact-form {
+      background-color: var(--background);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+    }
+    
+    button {
+      background-color: var(--primary);
+      color: var(--light);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: var(--accent);
+    }
+    
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      background-color: #25D366;
+      margin-top: 1rem;
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 0.5rem;
+    }
+    
+    footer {
+      background-color: var(--primary);
+      color: var(--light);
+      text-align: center;
+      padding: 2rem 0;
+    }
+    
+    /* Dark Mode Toggle */
+    .dark-mode-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .dark-mode-toggle {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--card-bg);
+      border-radius: 30px;
+      padding: 5px 15px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .toggle-label {
+      margin-right: 10px;
+      font-weight: 500;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: var(--primary);
+    }
+    
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    
+    /* Dark Theme */
+    [data-theme="dark"] {
+      --primary: #2E86C1;
+      --secondary: #3498DB;
+      --background: #1E272E;
+      --text: #FFFFFF;
+      --light: #2C3E50;
+      --accent: #5DADE2;
+      --card-bg: #34495E;
+      --section-bg: #263747;
+    }
+    
+    [data-theme="dark"] div,
+    [data-theme="dark"] p,
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6,
+    [data-theme="dark"] span,
+    [data-theme="dark"] label,
+    [data-theme="dark"] button,
+    [data-theme="dark"] a {
+      color: white !important;
+    }
+
+    .map-container {
+  width: 100%;
+  margin: 1rem 0 2rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  display: block;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Grupo Dicasa</div>
+        <div class="nav-links">
+          <a href="#home">Inicio</a>
+          <a href="#about">Quiénes Somos</a>
+          <a href="#mission">Misión y Visión</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#testimonials">Testimonios</a>
+          <a href="#contact">Contacto</a>
+        </div>
+      </nav>
+      
+      <div class="hero" id="home">
+        <h1>Grupo Dicasa </h1>
+        <p>Construyendo sueños, creando hogares, desarrollando el futuro inmobiliario de México.</p>
+        <a href="#contact" class="btn">Contáctanos</a>
+      </div>
+    </div>
+  </header>
+  
+  <section id="about">
+    <div class="container">
+      <h2>Quiénes Somos</h2>
+      <div class="about-container">
+        <div class="about-text">
+          <h3>Grupo Desarrollador Inmobiliario de Calidad</h3>
+          <p>Somos una empresa mexicana con más de 15 años de experiencia en el sector inmobiliario. Nos especializamos en el desarrollo de proyectos residenciales y comerciales de alta calidad que satisfacen las necesidades de nuestros clientes.</p>
+          <p>En Grupo Dicasa, entendemos que la adquisición de un inmueble es una de las decisiones más importantes en la vida de nuestros clientes, por lo que nos comprometemos a ofrecer propiedades con los más altos estándares de calidad, diseño y ubicación.</p>
+          <p>Nuestro equipo está formado por profesionales altamente capacitados en arquitectura, ingeniería, finanzas y ventas, lo que nos permite ofrecer un servicio integral y personalizado en cada uno de nuestros proyectos.</p>
+        </div>
+        <div class="about-image">
+          <img src="/api/placeholder/600/400" alt="Edificio moderno">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="mission" class="mission-vision">
+    <div class="container">
+      <h2>Nuestra Misión y Visión</h2>
+      <div class="mv-container">
+        <div class="mv-card">
+          <h3>Misión</h3>
+          <p>Desarrollar proyectos inmobiliarios innovadores y sustentables que mejoren la calidad de vida de nuestros clientes, generando valor para nuestros inversionistas y contribuyendo al desarrollo urbano responsable de las comunidades donde operamos.</p>
+        </div>
+        <div class="mv-card">
+          <h3>Visión</h3>
+          <p>Ser el desarrollador inmobiliario líder en México, reconocido por la calidad de nuestros proyectos, nuestra responsabilidad social y ambiental, y nuestra capacidad para anticipar y satisfacer las necesidades cambiantes del mercado inmobiliario.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="team">
+    <div class="container">
+      <h2>Nuestro Equipo Directivo</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="/api/placeholder/400/400" alt="Director General">
+          <div class="member-info">
+            <h3>Carlos Ramírez</h3>
+            <p class="role">Director General</p>
+            <p>Con más de 20 años de experiencia en el sector inmobiliario, lidera nuestra visión estratégica y expansión.</p>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="/api/placeholder/400/400" alt="Directora de Arquitectura">
+          <div class="member-info">
+            <h3>Laura Méndez</h3>
+            <p class="role">Directora de Arquitectura</p>
+            <p>Arquitecta premiada internacionalmente que aporta diseños innovadores y funcionales a cada proyecto.</p>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="/api/placeholder/400/400" alt="Director Financiero">
+          <div class="member-info">
+            <h3>Roberto Vega</h3>
+            <p class="role">Director Financiero</p>
+            <p>Experto en finanzas inmobiliarias y estructuración de inversiones para maximizar el retorno.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Nuestros Proyectos</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="/api/placeholder/600/400" alt="Residencial Los Álamos">
+          <div class="project-info">
+            <h3>Residencial Los Álamos</h3>
+            <p>Exclusivo conjunto residencial con 45 casas de lujo, áreas verdes y amenidades de primer nivel en la mejor zona de Puebla.</p>
+            <div>
+              <span class="tag">Residencial</span>
+              <span class="tag">Lujo</span>
+              <span class="tag">Entrega 2025</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="/api/placeholder/600/400" alt="Torre Ejecutiva Central">
+          <div class="project-info">
+            <h3>Torre Ejecutiva Central</h3>
+            <p>Edificio de oficinas AAA en el corazón del distrito financiero, con tecnología inteligente y certificación LEED Gold.</p>
+            <div>
+              <span class="tag">Comercial</span>
+              <span class="tag">Oficinas</span>
+              <span class="tag">Sustentable</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="/api/placeholder/600/400" alt="Plaza Magnolia">
+          <div class="project-info">
+            <h3>Plaza Magnolia</h3>
+            <p>Centro comercial con más de 50 locales, food court y cines, ubicado estratégicamente para servir a 3 fraccionamientos residenciales.</p>
+            <div>
+              <span class="tag">Comercial</span>
+              <span class="tag">Retail</span>
+              <span class="tag">En operación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>Testimonios</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p class="testimonial-text">Adquirir nuestra casa en Residencial Los Álamos fue la mejor decisión. La calidad de construcción, las amenidades y el servicio postventa han superado nuestras expectativas.</p>
+          <div class="testimonial-author">
+            <img src="/api/placeholder/100/100" alt="Cliente">
+            <div class="author-info">
+              <h4>Familia Gutiérrez</h4>
+              <p>Propietarios desde 2023</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p class="testimonial-text">Como inversionista en Torre Ejecutiva Central, estoy impresionado por la rentabilidad y la gestión profesional del inmueble. Grupo Dicasa cumplió todo lo prometido y más.</p>
+          <div class="testimonial-author">
+            <img src="/api/placeholder/100/100" alt="Inversionista">
+            <div class="author-info">
+              <h4>Miguel Ángel Torres</h4>
+              <p>Inversionista</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="quote">"</div>
+          <p class="testimonial-text">Mi local en Plaza Magnolia ha sido un éxito desde el primer día. La ubicación, el flujo de visitantes y la administración profesional han hecho que mi negocio crezca constantemente.</p>
+          <div class="testimonial-author">
+            <img src="/api/placeholder/100/100" alt="Locatario">
+            <div class="author-info">
+              <h4>Sandra Ortiz</h4>
+              <p>Propietaria de negocio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contáctanos</h2>
+      
+      <!-- Dark Mode 
+      <div class="dark-mode-container">
+        <div class="dark-mode-toggle">
+          <span class="toggle-label">¿Prefieres el modo oscuro?</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="dark-mode-switch">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>-->
+     <!--MAP -->
+<div class="map-container">
+    <iframe 
+      style="border:0; width: 100%; height: 270px;" 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15070.481727081553!2d-98.20627376044915!3d19.041439961719554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc0e612d5c0b5%3A0xf5e0aa1184c09e1a!2sPuebla%2C%20Pue.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2s!4v1713532519311!5m2!1ses-419!2s"  
+      frameborder="0" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Información de Contacto</h3>
+          <p>¿Estás interesado en nuestros desarrollos o buscas invertir con nosotros? Ponte en contacto y estaremos encantados de atenderte.</p>
+          
+          <div class="contact-method">
+            <i class="fas fa-envelope"></i>
+            <span>contacto@grupodicasa.com</span>
+          </div>
+          
+          <div class="contact-method">
+            <i class="fas fa-phone"></i>
+            <span>+52 222 719 2403</span>
+          </div>
+          
+          <div class="contact-method">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Av. Juárez 2510, Col. La Paz, Puebla, México</span>
+          </div>
+          
+          <button class="whatsapp-btn" id="whatsapp-contact">
+            <i class="fab fa-whatsapp"></i> Contactar vía WhatsApp
+          </button>
+        </div>
+        
+        <div class="contact-form">
+          <form id="email-form">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="interest">Interés</label>
+              <select id="interest" name="interest" required>
+                <option value="">Selecciona una opción</option>
+                <option value="residencial">Proyecto Residencial</option>
+                <option value="comercial">Proyecto Comercial</option>
+                <option value="inversion">Oportunidades de Inversión</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <button type="submit">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Grupo Dicasa - Grupo Desarrollador Inmobiliario de Calidad SA de CV. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    
+    document.getElementById('whatsapp-contact').addEventListener('click', function() {
+    
+    const phoneNumber = '2227192403';
+    
+    const message = 'Hola! Estoy interesado en conocer más sobre los proyectos de Grupo Dicasa.';
+    
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+     
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+</body>
+</html>
