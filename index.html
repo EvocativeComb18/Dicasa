@@ -5,16 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grupo Dicasa - Desarrollador Inmobiliario</title>
   <style>
-    :root {
-      --primary: #1A5276;
-      --secondary: #2E86C1;
-      --background: #F8F9F9;
-      --text: #2C3E50;
-      --light: #ffffff;
-      --accent: #154360;
-      --card-bg: #ffffff;
-      --section-bg: #EBF5FB;
-    }
+  :root {
+  --primary: #333333;      /* Gris oscuro (antes azul oscuro) */
+  --secondary: #666666;    /* Gris medio (antes azul medio) */
+  --background: #F5F5F5;   /* Gris muy claro (antes fondo claro) */
+  --text: #1A1A1A;         /* Casi negro (antes texto oscuro) */
+  --light: #FFFFFF;        /* Blanco (se mantiene igual) */
+  --accent: #0F0F0F;       /* Negro muy oscuro (antes azul más oscuro) */
+  --card-bg: #FFFFFF;      /* Blanco (se mantiene igual) */
+  --section-bg: #E0E0E0;   /* Gris claro (antes fondo azulado claro) */
+}
+.team-description {
+  max-width: 800px;  /* Puedes ajustar este valor según necesites */
+  margin: 0 auto 40px;  /* Centra el bloque y agrega espacio abajo */
+}
+
+.justified-text {
+  text-align: justify;
+  line-height: 1.6;  /* Mejora la legibilidad del texto */
+  font-size: 16px;  /* Ajusta el tamaño según prefieras */
+}
+
+.contact-card {
+  width: 100%;
+  max-width: 600px; /* Ajusta este valor según necesites */
+  margin: 0 auto 0 0; /* Cambia el margin auto a 0 para alinear a la izquierda */
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-start; /* Cambia center por flex-start para alinear a la izquierda */
+}
+
+.contact-card-image {
+  width: auto; /* Cambia de 100% a auto para respetar las dimensiones originales */
+  max-width: 100%; /* Asegura que no se desborde del contenedor */
+  height: auto;
+  border-radius: 8px; /* Opcional */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional */
+}
     
     * {
       margin: 0;
@@ -54,6 +81,10 @@
       font-weight: bold;
       color: var(--light);
     }
+    .logo img {
+  max-width: 150px;  /* Ajusta este valor según el tamaño que desees */
+  height: auto;      /* Mantiene la proporción del logo */
+}
     
     .nav-links {
       display: flex;
@@ -540,20 +571,20 @@
   <header>
     <div class="container">
       <nav>
-        <div class="logo">Grupo Dicasa</div>
+        <div class="logo"><img class="logo" src="logoh.png"></div>
         <div class="nav-links">
           <a href="#home">Inicio</a>
           <a href="#about">Quiénes Somos</a>
           <a href="#mission">Misión y Visión</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#testimonials">Testimonios</a>
+          <a href="#team">Nuestro Equipo</a>
+          <!--<a href="#testimonials">Testimonios</a>-->
           <a href="#contact">Contacto</a>
         </div>
       </nav>
       
       <div class="hero" id="home">
         <h1>Grupo Dicasa </h1>
-        <p>Construyendo sueños, creando hogares, desarrollando el futuro inmobiliario de México.</p>
+        <p>Unimos esfuerzos para lograr lo imposible.</p>
         <a href="#contact" class="btn">Contáctanos</a>
       </div>
     </div>
@@ -565,12 +596,12 @@
       <div class="about-container">
         <div class="about-text">
           <h3>Grupo Desarrollador Inmobiliario de Calidad</h3>
-          <p>Somos una empresa mexicana con más de 15 años de experiencia en el sector inmobiliario. Nos especializamos en el desarrollo de proyectos residenciales y comerciales de alta calidad que satisfacen las necesidades de nuestros clientes.</p>
-          <p>En Grupo Dicasa, entendemos que la adquisición de un inmueble es una de las decisiones más importantes en la vida de nuestros clientes, por lo que nos comprometemos a ofrecer propiedades con los más altos estándares de calidad, diseño y ubicación.</p>
-          <p>Nuestro equipo está formado por profesionales altamente capacitados en arquitectura, ingeniería, finanzas y ventas, lo que nos permite ofrecer un servicio integral y personalizado en cada uno de nuestros proyectos.</p>
+          <p>En Grupo DICASA somos una empresa mexicana dedicada a transformar propiedades con potencial en hogares listos para una nueva etapa. Nos especializamos en brindar soluciones inmobiliarias enfocadas en el mejoramiento y puesta en valor de viviendas que requieren atención, ubicadas principalmente en zonas estratégicas de la ciudad de Puebla.</p>
+          <p>Contamos con un equipo comprometido y multidisciplinario que supervisa cada etapa del proceso. Trabajamos con profesionalismo, claridad y enfoque humano, siempre buscando que cada propiedad recupere su valor y sea ofrecido a compradores como inmuebles renovados y listos para habitar, con la certeza de que cada propiedad ha sido cuidadosamente rehabilitada, revisada legalmente y puesta a punto para un nuevo comienzo.</p>
+          <p>En Grupo DICASA creemos en las soluciones reales, en la transparencia y en el trabajo conjunto como camino para generar valor para todas las partes involucradas..</p>
         </div>
         <div class="about-image">
-          <img src="/api/placeholder/600/400" alt="Edificio moderno">
+          <img src="logov.png" alt="Edificio moderno">
         </div>
       </div>
     </div>
@@ -582,50 +613,27 @@
       <div class="mv-container">
         <div class="mv-card">
           <h3>Misión</h3>
-          <p>Desarrollar proyectos inmobiliarios innovadores y sustentables que mejoren la calidad de vida de nuestros clientes, generando valor para nuestros inversionistas y contribuyendo al desarrollo urbano responsable de las comunidades donde operamos.</p>
+          <p>Brindar soluciones inmobiliarias integrales que transformen viviendas con potencial en nuevas oportunidades, ayudando a las personas a resolver situaciones crediticias que afectan su estabilidad personal y familiar.
+            Nuestro objetivo es recuperar el valor de cada propiedad y ofrecer procesos seguros, eficientes, éticos y accesibles para quienes desean vender o comprar un hogar.</p>
         </div>
         <div class="mv-card">
           <h3>Visión</h3>
-          <p>Ser el desarrollador inmobiliario líder en México, reconocido por la calidad de nuestros proyectos, nuestra responsabilidad social y ambiental, y nuestra capacidad para anticipar y satisfacer las necesidades cambiantes del mercado inmobiliario.</p>
+          <p>Ser la empresa líder en transformación inmobiliaria en México, reconocida por generar valor no solo en las propiedades, sino también en la vida de las personas a través de nuestro modelo innovador, transparente y colaborativo, que genera valor social, económico y urbano para las comunidades donde trabajamos.</p>
         </div>
       </div>
     </div>
   </section>
-  
+
+
   <section id="team">
-    <div class="container">
-      <h2>Nuestro Equipo Directivo</h2>
-      <div class="team-grid">
-        <div class="team-member">
-          <img src="/api/placeholder/400/400" alt="Director General">
-          <div class="member-info">
-            <h3>Carlos Ramírez</h3>
-            <p class="role">Director General</p>
-            <p>Con más de 20 años de experiencia en el sector inmobiliario, lidera nuestra visión estratégica y expansión.</p>
-          </div>
-        </div>
-        
-        <div class="team-member">
-          <img src="/api/placeholder/400/400" alt="Directora de Arquitectura">
-          <div class="member-info">
-            <h3>Laura Méndez</h3>
-            <p class="role">Directora de Arquitectura</p>
-            <p>Arquitecta premiada internacionalmente que aporta diseños innovadores y funcionales a cada proyecto.</p>
-          </div>
-        </div>
-        
-        <div class="team-member">
-          <img src="/api/placeholder/400/400" alt="Director Financiero">
-          <div class="member-info">
-            <h3>Roberto Vega</h3>
-            <p class="role">Director Financiero</p>
-            <p>Experto en finanzas inmobiliarias y estructuración de inversiones para maximizar el retorno.</p>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <h2>EQUIPO DIRECTIVO</h2>
+    <div class="team-description">
+      <p class="justified-text">En Grupo Dicasa, nuestro equipo directivo está conformado por dos profesionales con amplia experiencia en los sectores inmobiliario y legal, lo que nos permite ofrecer un servicio integral, confiable y eficiente. Su trabajo coordinado garantiza que cada propiedad sea abordada desde una perspectiva profesional, humana y estratégica, cuidando tanto el aspecto legal como el físico de cada inmueble.</p>
     </div>
-  </section>
-  
+  </div>
+</section>
+  <!---
   <section id="projects" class="projects">
     <div class="container">
       <h2>Nuestros Proyectos</h2>
@@ -670,50 +678,8 @@
         </div>
       </div>
     </div>
-  </section>
-  
-  <section id="testimonials" class="testimonials">
-    <div class="container">
-      <h2>Testimonios</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p class="testimonial-text">Adquirir nuestra casa en Residencial Los Álamos fue la mejor decisión. La calidad de construcción, las amenidades y el servicio postventa han superado nuestras expectativas.</p>
-          <div class="testimonial-author">
-            <img src="/api/placeholder/100/100" alt="Cliente">
-            <div class="author-info">
-              <h4>Familia Gutiérrez</h4>
-              <p>Propietarios desde 2023</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p class="testimonial-text">Como inversionista en Torre Ejecutiva Central, estoy impresionado por la rentabilidad y la gestión profesional del inmueble. Grupo Dicasa cumplió todo lo prometido y más.</p>
-          <div class="testimonial-author">
-            <img src="/api/placeholder/100/100" alt="Inversionista">
-            <div class="author-info">
-              <h4>Miguel Ángel Torres</h4>
-              <p>Inversionista</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="quote">"</div>
-          <p class="testimonial-text">Mi local en Plaza Magnolia ha sido un éxito desde el primer día. La ubicación, el flujo de visitantes y la administración profesional han hecho que mi negocio crezca constantemente.</p>
-          <div class="testimonial-author">
-            <img src="/api/placeholder/100/100" alt="Locatario">
-            <div class="author-info">
-              <h4>Sandra Ortiz</h4>
-              <p>Propietaria de negocio</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </section> --->
+
   
   <section id="contact" class="contact">
     <div class="container">
@@ -748,17 +714,22 @@
           
           <div class="contact-method">
             <i class="fas fa-envelope"></i>
-            <span>contacto@grupodicasa.com</span>
+            <span>grupodicasa.desarrollos@gmail.com</span>
           </div>
+
+          <div class="contact-method">
+  <i class="fab fa-facebook-f"></i>
+  <span>Grupo Dicasa</span>
+</div>
           
           <div class="contact-method">
             <i class="fas fa-phone"></i>
-            <span>+52 222 719 2403</span>
+            <span>+52 222 548 6795</span>
           </div>
           
           <div class="contact-method">
             <i class="fas fa-map-marker-alt"></i>
-            <span>Av. Juárez 2510, Col. La Paz, Puebla, México</span>
+            <span>Puebla, México</span>
           </div>
           
           <button class="whatsapp-btn" id="whatsapp-contact">
@@ -766,42 +737,9 @@
           </button>
         </div>
         
-        <div class="contact-form">
-          <form id="email-form">
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phone">Teléfono</label>
-              <input type="tel" id="phone" name="phone" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="interest">Interés</label>
-              <select id="interest" name="interest" required>
-                <option value="">Selecciona una opción</option>
-                <option value="residencial">Proyecto Residencial</option>
-                <option value="comercial">Proyecto Comercial</option>
-                <option value="inversion">Oportunidades de Inversión</option>
-                <option value="otros">Otros</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Mensaje</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-            
-            <button type="submit">Enviar Mensaje</button>
-          </form>
-        </div>
+        <div class="contact-card">
+  <img src="tarjeta.png" alt="Tarjeta de contacto Grupo Dicasa" class="contact-card-image">
+</div>
       </div>
     </div>
   </section>
@@ -816,7 +754,7 @@
     
     document.getElementById('whatsapp-contact').addEventListener('click', function() {
     
-    const phoneNumber = '2227192403';
+    const phoneNumber = '2225486795';
     
     const message = 'Hola! Estoy interesado en conocer más sobre los proyectos de Grupo Dicasa.';
     
